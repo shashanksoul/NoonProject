@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, Button } from 'react-native';
+import styles from './styles';
 
 const ConfirmationScreen = () => {
     const {reset} = useNavigation();
@@ -11,10 +12,10 @@ const ConfirmationScreen = () => {
     };
 
     return(
-        <View style={{flex: 1,justifyContent:'center', alignItems:'center'}}>
-            <Text style={{fontSize: 50}}>✅</Text>
-       <Text>Order has been successfully placed</Text>
-       <Button title="Return Home" onPress={onHomeClick} />
+        <View style={styles.container}>
+        <Text style={styles.icon}>✅</Text>
+        <Text>Order has been successfully placed</Text>
+        <Button title="Return Home" onPress={onHomeClick} />
         </View>
     );
 };
