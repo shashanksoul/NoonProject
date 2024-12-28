@@ -1,7 +1,6 @@
 import React from 'react';
 import { FlatList, TextInput, View } from 'react-native';
 import styles from './styles';
-import { ProductList } from '../../components';
 import {ProductSectionData} from '../../mock/mockData';
 import ProductItem from '../../components/ProductItem';
 import { useNavigation } from '@react-navigation/native';
@@ -13,11 +12,11 @@ const SearchScreen = () => {
     const [productData, setProductData] = React.useState(mergedData);
 
 
-    const onProductClick = (item) => {
+    const onProductClick = (item: any) => {
         navigate('Detail',{item});
     };
 
-    const onChangeText = (txt) => {
+    const onChangeText = (txt: string) => {
     setSearchQuery(txt);
 
     const filteredProducts = mergedData.filter(item => item.name.includes(txt));

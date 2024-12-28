@@ -33,10 +33,13 @@ const DetailScreen: React.FC = () => {
     dispatch(removeFromCart(productDetail));
     };
 
-    const onCartClick = () => {
+    const onCartClick = React.useCallback(() => {
         navigate('Cart');
-    };
+    },[navigate]);
 
+     const ViewCartBtn = React.useCallback(() => (<TouchableOpacity onPress={onCartClick} style={styles.cartBtn}>
+        <Text>{` View Cart 🛒 ${products.length}`}</Text>
+        </TouchableOpacity>),[products.length, onCartClick]);
 
     return(
         <ScrollView contentContainerStyle={styles.scrollContentContainer}>
@@ -54,9 +57,7 @@ const DetailScreen: React.FC = () => {
                 <Text>{isAlreadyInCart ? 'Remove from Cart' : 'Add to cart'}</Text>
                 </TouchableOpacity>
             </View>
-            {products?.length > 0 && <TouchableOpacity onPress={onCartClick} style={styles.cartBtn}>
-            <Text>{` View Cart 🛒 ${products.length}`}</Text>
-            </TouchableOpacity>}
+            {products?.length > 0 && <ViewCartBtn />}
         </ScrollView>
     );
 };

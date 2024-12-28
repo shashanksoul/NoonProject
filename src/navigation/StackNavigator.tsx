@@ -3,8 +3,17 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { CartReviewScreen, CartScreen, ConfirmationScreen, DetailScreen, HomeScreen, SearchScreen } from '../screens';
 import { HederRight } from '../components';
 
+export type RootStackParamList = {
+    Home: undefined;
+    Detail: { item: any };
+    Cart: undefined;
+    CartReview: undefined;
+    Confirmation: undefined;
+    Search: undefined;
+  };
 
-const Stack = createNativeStackNavigator();
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const RootStack = () => (
 <Stack.Navigator>
