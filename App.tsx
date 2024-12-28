@@ -1,13 +1,17 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import AppNavigator from './src/navigation';
+import { initialWindowMetrics, SafeAreaProvider } from 'react-native-safe-area-context';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const App = () => {
 
 
   return(
-    <View>
-      <Text>Hello</Text>
-    </View>
+    <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+    <GestureHandlerRootView>
+    <AppNavigator/>
+    </GestureHandlerRootView>
+    </SafeAreaProvider>
   );
 };
 
