@@ -5,10 +5,11 @@ import styles from './styles';
 import SellingFast from '../../components/SellingFast';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, removeFromCart } from '../../redux/cartSlice';
+import { RootState } from '../../redux/store';
 
 const DetailScreen: React.FC = () => {
 
-    const {products} = useSelector((state) => state.cart);
+    const {products} = useSelector((state: RootState) => state.cart);
     const dispatch = useDispatch();
     const {navigate} = useNavigation();
 

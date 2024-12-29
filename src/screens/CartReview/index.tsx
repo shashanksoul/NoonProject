@@ -5,9 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 import { resetCart } from '../../redux/cartSlice';
+import { RootState } from '../../redux/store';
 
 const CartReviewScreen = () => {
-    const {products} = useSelector((state) => state.cart);
+    const {products} = useSelector((state: RootState ) => state.cart);
     const {replace} = useNavigation();
     const dispatch = useDispatch();
 

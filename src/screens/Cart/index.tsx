@@ -1,16 +1,17 @@
 import React from 'react';
-import { View , Image, Text, Button, TouchableOpacity} from 'react-native';
+import { View, Text, Button} from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProductQty, removeFromCart, removeProductQty } from '../../redux/cartSlice';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 import { CartItem, Summary } from '../../components';
+import { RootState } from '../../redux/store';
 
 
 const CartScreen : React.FC = () => {
 
-    const {products} = useSelector((state) => state.cart);
+    const {products} = useSelector((state: RootState) => state.cart);
     const dispatch = useDispatch();
     const {navigate, reset} = useNavigation();
 
